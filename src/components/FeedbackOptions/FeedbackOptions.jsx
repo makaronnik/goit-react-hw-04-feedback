@@ -5,10 +5,10 @@ import FeedbackOption from './FeedbackOption/FeedbackOption';
 const FeedbackOptions = ({ options, onLeaveFeedback }) => {
   return (
     <FeedbackOptionsStyled>
-      {Object.keys(options).map(key => (
-        <li key={key}>
+      {options.map(option => (
+        <li key={option}>
           <FeedbackOption
-            option={key}
+            option={option}
             onLeaveFeedback={onLeaveFeedback}
           ></FeedbackOption>
         </li>
@@ -18,7 +18,7 @@ const FeedbackOptions = ({ options, onLeaveFeedback }) => {
 };
 
 FeedbackOptions.propTypes = {
-  options: PropTypes.objectOf(PropTypes.number),
+  options: PropTypes.arrayOf(PropTypes.string),
   onLeaveFeedback: PropTypes.func,
 };
 
